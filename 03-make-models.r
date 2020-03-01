@@ -321,3 +321,22 @@ predict(rf_model_2,unknown_old)
 
 
 ####################
+
+bust_model<-lm(bust~old+hight,data=data2)
+pred_bust<-predict(bust_model,unknown_3size)
+
+waist_model<-lm(waist~old+hight,data=data2)
+pred_waist<-predict(waist_model,unknown_3size)
+
+hip_model<-lm(hip~old+hight,data=data2)
+pred_hip<-predict(hip_model,unknown_3size)
+
+
+
+unknown_3size$pred_bust<-pred_bust
+unknown_3size$pred_waist<-pred_waist
+unknown_3size$pred_hip<-pred_hip
+
+write.csv(unknown_3size, "pred_3size.csv", fileEncoding = "CP932",row.names=F)
+
+
